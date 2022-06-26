@@ -1,0 +1,51 @@
+[
+    {
+        "id":"1",
+        "name":"Doctor Smith",
+        "age":"12",
+        "specialty":"Dentist",
+        "image":"/images/adedoyin.jpg"
+
+    },
+    {
+        "id":"2",
+        "name":"Doctor Kingsley",
+        "age":"23",
+        "specialty":"Nuerosurgeon",
+        "image":"/images/girl.jpg"
+
+    },
+    {
+        "id":"3",
+        "name":"Doctor Rachael",
+        "age":"45",
+        "specialty":"Occulist",
+        "image":"/images/tonia.jpg"
+
+    },
+    {
+        "id":"4",
+        "name":"Doctor Nancy",
+        "age":"35",
+        "specialty":"Surgeon",
+        "image":"/images/lanu.jpg"
+
+    },
+    {
+        "id":"5",
+        "name":"Doctor Chimma",
+        "age":"45",
+        "specialty":"Consultant",
+        "image":"/images/nduka.jpg"
+     
+     
+    },
+    {
+        "id":"6",
+        "name":"Doctor Zenith",
+        "age":"45",
+        "specialty":"Consultant",
+        "image":"/images/nduka.jpg"
+  
+    }
+]
