@@ -39,6 +39,19 @@ const SignUpe = () => {
             </Describe>
 
             <Link
+              to={`/hospital/${hospitalId}/admin`}
+              style={{ textDecoration: "none", color: "initial" }}
+            >
+              <PatientCard>
+                <Avatar src="/assets/girl.jpg" />
+                <Notes>
+                  <span>I'm the Admin </span>
+                  <p>Let's save lives</p>
+                </Notes>
+              </PatientCard>
+            </Link>
+
+            <Link
               to={`/hospital/${hospitalId}/doctor`}
               style={{ textDecoration: "none", color: "initial" }}
             >
@@ -86,7 +99,7 @@ cursor pointer;
 border-radius:5px;
 margin-top: 30px;
 transition: all 350ms;
-
+width: 100%;
 :hover{
     box-shadow:none;
     border: 1px solid rgba(0, 0 , 255, 0.6);

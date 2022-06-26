@@ -12,6 +12,7 @@ import DoctorSignUp from "../Platform/DoctorAuth/SignUp";
 import PatientOverview from "../Dashboards/PatientDashboard/PatientOverview";
 import PatientSignUp from "../Platform/PatientAuth/SignUp";
 import PatientSignIn from "../Platform/PatientAuth/SignIn";
+import AdminSignIn from "../Platform/AdminAuth/SignIn";
 import MultiUser from "../Platform/Toggle/Toggle";
 import HospitalDetail from "../Platform/HospitalDetailed/Home";
 import HospitalList from "../Platform/HospitalList/HospitalList";
@@ -50,6 +51,7 @@ function MainRoutes() {
               element={<DoctorSignUp />}
             />
 
+            <Route path="/hospital/:hospitalId/admin" element={<SignIn />} />
             <Route path="/create" element={<CreateProfile />} />
             <Route path="/appoint" element={<Appointment />} />
             <Route path="/otp" element={<OTP />} />
