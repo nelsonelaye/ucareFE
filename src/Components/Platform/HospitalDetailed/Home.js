@@ -44,7 +44,7 @@ const Home = () => {
               <Titles>{hospitalData.hospitalName}</Titles>
               <Describe>Get The Best Care At Affordable Price</Describe>
               <Link
-                to={`/hospital/${hospitalData._id}/auth`}
+                to={`/hospital/${hospitalData._id}/patient`}
                 style={{ textDecoration: "none" }}
               >
                 <Buttons>Book an Appointment</Buttons>
@@ -154,6 +154,7 @@ const Titles = styled.div`
   font-size: 50px;
   font-weight: 800;
   color: white;
+  text-transform: capitalize;
   @media screen and (max-width: 1024px) {
     text-align: center;
     font-size: 30px;

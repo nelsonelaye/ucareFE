@@ -1,8 +1,9 @@
+import AdminHead from "./Head";
+import AdminNav from "./Nav";
+import AllPatients from "./AllPatients";
 import React from "react";
 import styled from "styled-components";
-import AdminHead from "./AdminHead";
-import AdminNav from "./AdminNav";
-const AllSpecialists = () => {
+const ParientArrange = () => {
   return (
     <Container>
       <Left>
@@ -12,13 +13,16 @@ const AllSpecialists = () => {
         <Headers>
           <AdminHead />
         </Headers>
-        <Overviews>create</Overviews>
+        <Overviews>
+          <AllPatients />
+        </Overviews>
       </Right>
     </Container>
   );
 };
 
-export default AllSpecialists;
+export default ParientArrange;
+
 const Headers = styled.div`
   height: 60px;
   width: 100%;
@@ -27,18 +31,29 @@ const Headers = styled.div`
 const Overviews = styled.div`
   flex: 1;
   width: 100%;
-  background-color: purple;
+  padding: 10px 0px;
+  background-color: white;
+  height: 100%;
+  display: felx;
+  justify-content: center;
 `;
 
 const Right = styled.div`
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   width: 85%;
-  background-color: red;
+  // background-color:red ;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 const Left = styled.div`
   height: 100vh;
   width: 15%;
   background-color: blue;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 const Container = styled.div`
   display: flex;

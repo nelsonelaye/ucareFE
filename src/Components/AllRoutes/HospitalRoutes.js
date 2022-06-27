@@ -21,7 +21,8 @@ import AdminCreateProfile from "../Dashboards/PatientDashboard/CreateProfile";
 import DocCreate from "../Dashboards/DoctorDashboard/DocCreate";
 import DocOverview from "../Dashboards/DoctorDashboard/DocOverview";
 import AdminOverview from "../Dashboards/AdminDashboard/AdminOverview";
-import AdminSpecialists from "../Dashboards/AdminDashboard/AllSpecialists";
+import Specialists from "../Dashboards/AdminDashboard/AllSpecialists";
+import Patients from "../Dashboards/AdminDashboard/AllPatients";
 import Specialist from "../Dashboards/PatientDashboard/Specialist";
 import AdminDash from "../Dashboards/AdminDashboard/AdminOverview";
 import { useSelector } from "react-redux";
@@ -43,7 +44,8 @@ function HospitalRoutes() {
 
             <Route path="/admin-overview" element={<AdminOverview />} />
             <Route path="/admin-create" element={<AdminCreateProfile />} />
-            <Route path="/admin-specialists" element={<AdminSpecialists />} />
+            <Route path="/all-specialists" element={<Specialists />} />
+            <Route path="/all-patients" element={<Patients />} />
             <Route path="/doc" element={<Specialist />} />
             <Route
               path="/hospital/:hospitalId/detail"

@@ -9,6 +9,7 @@ import React from "react";
 import { RiContactsBookFill } from "react-icons/ri";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
 const DocOverview = () => {
   const user = useSelector((state) => state.user);
   console.log(user);
@@ -64,7 +65,7 @@ const DocOverview = () => {
                       <Title>Date of Birth:</Title>
                       <Show>
                         <BsCalendar2DateFill />
-                        <span>{user.DOB}</span>
+                        <span>{moment(user.DOB).format("MMMM d, YYYY")}</span>
                       </Show>
                     </GenWrap>
                     <GenWrap>
@@ -144,14 +145,15 @@ const Contact = styled.div`
 `;
 const Name = styled.div`
   color: black;
-  padding: 10px 0px;
-  font-weight: 700;
+  padding-top: 10px;
+  font-weight: 600;
 `;
 const Patient = styled.div`
-  padding: 10px 15px;
   background: white;
-  margin-top: 20px;
-  font-weight: bold;
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--tiny);
   cursor: pointer;
   border-radius: 20px;
   scale: all(1);
@@ -170,6 +172,7 @@ const Pics = styled.img`
 `;
 const ProfileWrap = styled.div`
   border-radius: 10px;
+  border: 1px solid var(--tiny);
   /* padding:10px 0px ; */
   height: 100%;
   width: 100%;

@@ -7,22 +7,22 @@ const SignUpe = () => {
   const [hospitalData, setHospitalData] = useState();
   console.log(hospitalId);
 
-    const getHospital = async () => {
-      // const mainUrl = "http://localhost:1210";
-      // const url = `${mainUrl}/company`;
-      const url2 = `http://localhost:1210/api/hospital/${hospitalId}`;
-      await axios
-        .get(url2)
-        .then((res) => {
-          // console.log(res);
+  const getHospital = async () => {
+    // const mainUrl = "http://localhost:1210";
+    // const url = `${mainUrl}/company`;
+    const url2 = `http://localhost:1210/api/hospital/${hospitalId}`;
+    await axios
+      .get(url2)
+      .then((res) => {
+        // console.log(res);
 
-          console.log(res);
-          setHospitalData(res.data.data);
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-    };
+        console.log(res);
+        setHospitalData(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
 
   useEffect(() => {
     console.log(hospitalId);
@@ -56,7 +56,7 @@ const SignUpe = () => {
               style={{ textDecoration: "none", color: "initial" }}
             >
               <PatientCard>
-                <Avatar src="/assets/girl.jpg" />
+                <Avatar src="/assets/profbak.png" />
 
                 <Notes>
                   <span>I'm a Doctor</span>
@@ -94,8 +94,9 @@ height:auto;
 align-items: center;
 justify-content: center;
 box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-padding: 13px 25px;
+padding: 10px 25px;
 cursor pointer;
+box-sizing: border-box;
 border-radius:5px;
 margin-top: 30px;
 transition: all 350ms;
@@ -120,9 +121,10 @@ const Notes = styled.div`
   }
 `;
 const Avatar = styled.img`
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
+  object-fit: cover;
 `;
 const Hero = styled.img`
   height: 50px;
@@ -157,7 +159,7 @@ const Card1 = styled.div`
   height: 100%;
   width: 450px;
   background-color: white;
-  display: unset;
+  // display: unset;
   display: flex;
   flex-direction: column;
   justify-content: center;

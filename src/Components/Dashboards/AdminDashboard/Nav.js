@@ -82,11 +82,18 @@ const AdminNav = () => {
                 <span>View Appointments</span>
               </Holder>
             </MyLink>
-            <NavLink to="/admin-specialists" style={{ textDecoration: "none" }}>
+            <NavLink to="/all-specialists" style={{ textDecoration: "none" }}>
               {" "}
               <Holder>
                 <FaUserNurse />
                 <span>Specialists</span>
+              </Holder>
+            </NavLink>
+
+            <NavLink to="/all-patients" style={{ textDecoration: "none" }}>
+              <Holder>
+                <FaBriefcaseMedical />
+                <span>Patients</span>
               </Holder>
             </NavLink>
 

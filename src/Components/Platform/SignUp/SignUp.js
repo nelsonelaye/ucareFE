@@ -148,11 +148,13 @@ const SignUp = () => {
                   <Input>
                     <Error>{errors.message && errors?.message.UHID}</Error>
                     <nav>
-                      UHID <span style={{ color: "red" }}>*</span>
+                      RC Number <span style={{ color: "red" }}>*</span>
                     </nav>
                     <input
                       type="text"
-                      placeholder="UHID"
+                      min="4"
+                      max="7"
+                      placeholder="RC Number"
                       {...register("UHID")}
                       required
                     />
@@ -184,7 +186,7 @@ const SignUp = () => {
                     </nav>
                     <input
                       type="email"
-                      placeholder="Email"
+                      placeholder="example@gmail.com"
                       {...register("email")}
                       required
                     />
@@ -197,7 +199,7 @@ const SignUp = () => {
                     </nav>
                     <input
                       type="number"
-                      placeholder="09012345678"
+                      placeholder="+234XXXXXXXXXX"
                       {...register("telephone")}
                       required
                     />

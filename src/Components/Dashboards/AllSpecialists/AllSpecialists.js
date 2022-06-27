@@ -1,9 +1,33 @@
+// import React, { useState, useEffect } from "react";
 // import AdminHead from "./Head";
 // import AdminNav from "./Nav";
-// import Doctor from "./Doctor.json";
-// import React from "react";
+// // import Doctor from "./Doctor.json";
 // import styled from "styled-components";
-// const ParientArrange = () => {
+// import { useSelector, useDispatch } from "react-redux";
+// import axios from "axios";
+// import moment from "moment";
+
+// const AllSpecialists = () => {
+//   const [allDoctors, setAllDoctors] = useState([]);
+
+//   // const allDoctors = [];
+//   const user = useSelector((state) => state.user);
+//   // console.log(user);
+//   const hospitalId = user._id;
+
+//   const getDoctors = async () => {
+//     const mainURL = "";
+//     const localURL = "http://localhost:1210";
+//     const url = `${localURL}/api/hospital/${hospitalId}/doctor/all`;
+//     await axios.get(url).then((res) => {
+//       console.log("this is the response", res?.data?.data?.doctors);
+//       setAllDoctors(res?.data?.data?.doctors);
+//     });
+//   };
+
+//   useEffect(() => {
+//     getDoctors();
+//   }, []);
 //   return (
 //     <Container>
 //       <Left>
@@ -14,44 +38,53 @@
 //           <AdminHead />
 //         </Headers>
 //         <Overviews>
-//           {Doctor.map((props) => (
-//             // <CardHold >
-//             <Carde key={props.id}>
-//               <Prt1>
-//                 <DocName>
-//                   <img src={props.image} />
-//                   <span> {props.name}</span>
-//                 </DocName>
-//               </Prt1>
-//               <Year>
-//                 <Age>
-//                   <a>{props.age}yrs</a>
-//                   <span>Doctor's age</span>
-//                 </Age>
-//                 <Age>
-//                   <a> {props.specialty}</a>
-//                   <span>Specialty</span>
-//                 </Age>
-//               </Year>
-//               <Prt2>View Proflie</Prt2>
-//             </Carde>
-//             // </CardHold>
-//           ))}
+//           {allDoctors &&
+//             allDoctors?.map((props) => (
+//               // <CardHold >
+//               <Carde key={props._id}>
+//                 <Prt1>
+//                   <DocName>
+//                     <img src={props.avatar} />
+//                     <span>
+//                       {" "}
+//                       {props.firstName} {props.lastName}
+//                     </span>
+//                   </DocName>
+//                 </Prt1>
+//                 <Year>
+//                   <Age>
+//                     <a>{moment().diff(props.DOB, "years", false)} yrs</a>
+//                     <span>Doctor's age</span>
+//                   </Age>
+//                   <Age>
+//                     <a> {props.specialization}</a>
+//                     <span>Specialty</span>
+//                   </Age>
+//                 </Year>
+//                 <Prt2>View Proflie</Prt2>
+//               </Carde>
+//               // </CardHold>
+//             ))}
 //         </Overviews>
 //       </Right>
 //     </Container>
 //   );
 // };
 
-// export default ParientArrange;
+// export default AllSpecialists;
 
 // const Age = styled.div`
-//   width: 140px;
+//   width: 100%;
 //   height: 100%;
+//   padding: 10px;
+//   margin: 0 5px;
+//   box-sizing: border-box;
 //   justify-content: center;
 //   align-items: center;
 //   display: flex;
+//   text-align: center;
 //   flex-direction: column;
+//   border-radius: 5px;
 //   background-color: white;
 // `;
 // const Year = styled.div`
@@ -59,7 +92,8 @@
 //   display: flex;
 //   justify-content: space-around;
 //   height: 60px;
-//   width: 320px;
+//   width: 100%;
+
 //   // background:white;
 //   position: absolute;
 //   top: 200px;
@@ -67,7 +101,7 @@
 //   right: 0x;
 //   a {
 //     font-weight: 600;
-//     font-size: 15px;
+//     font-size: 14px;
 //   }
 //   span {
 //     font-size: 12px;
@@ -85,7 +119,7 @@
 //     height: 100px;
 //     width: 100px;
 //     border-radius: 50%;
-//     // object-fit:cover;
+//     object-fit: cover;
 //     border: 2px solid white;
 //   }
 //   span {
@@ -116,7 +150,7 @@
 // `;
 // const Carde = styled.div`
 //   height: 350px;
-//   width: 320px;
+//   width: 350px;
 //   // background:red;
 //   margin: 5px 0px;
 
@@ -136,14 +170,14 @@
 //   background-color: white;
 // `;
 // const Overviews = styled.div`
-//   padding: 10px 0px;
+//   padding: 10px;
 //   flex-wrap: wrap;
-//   background-color: #eeeeff;
-//   // background-color:pink;
+//   // background-color: #eeeeff;
+//   // background-color: pink;
 //   display: flex;
 //   justify-content: space-evenly;
-//   // justify-content:center;
-//   // height:100% ;
+//   justify-content: center;
+//   height: 100%;
 // `;
 
 // const Right = styled.div`
@@ -161,12 +195,14 @@
 //   background-color: blue;
 //   height: 100%;
 //   min-height: 100vh;
+//   // display: none;
+
 //   @media screen and (max-width: 768px) {
 //     display: none;
 //   }
 // `;
 // const Container = styled.div`
 //   display: flex;
-//   width: 100vw;
+//   width: 100%;
 //   height: 100vh;
 // `;
