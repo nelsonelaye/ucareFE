@@ -47,7 +47,7 @@ const Home = () => {
                 to={`/hospital/${hospitalData._id}/auth`}
                 style={{ textDecoration: "none" }}
               >
-                <Buttons>Register Here</Buttons>
+                <Buttons>Book an Appointment</Buttons>
               </Link>
             </Wrapper>
           </SecondContainer>

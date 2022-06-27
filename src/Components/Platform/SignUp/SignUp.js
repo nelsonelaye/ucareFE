@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [image, setImage] = useState("/assets/stet.jpg");
+  const [image, setImage] = useState("/assets/hoslogo.png");
   const [logo, setLogo] = useState("");
 
   const formSchema = yup.object().shape({
@@ -408,12 +408,12 @@ const ImageInput = styled.input`
 `;
 
 const ImageLabel = styled.label`
-  padding: 10px 20px;
+  padding: 8px 15px;
   background-color: var(--color);
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
   transition: all 350ms;
-  font-weight: 600;
+  font-weight: 500;
   :hover {
     cursor: pointer;
     transform: scale(1.01);
@@ -476,11 +476,13 @@ const Input = styled.div`
     width: 100%;
     padding: 0px 10px;
     box-sizing: border-box;
-    height: 50px;
+    height: 80px;
     margin-top: 3px;
     border: 1px solid #dcdcdc;
     border-radius: 5px;
     outline: none;
+    resize: none;
+    overflow: scroll;
     span {
       color: red;
     }
@@ -508,7 +510,7 @@ const Button = styled.button`
   background-color: var(--color);
   font-size: 18px;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 5px;
   outline: none;
   cursor: pointer;
   border: 0;

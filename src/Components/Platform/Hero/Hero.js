@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaGraduationCap } from "react-icons/fa";
 import { HiDocumentDuplicate } from "react-icons/hi";
+import { Link } from "react-router-dom";
 // import wave from "../../Img/wave.svg";
 
 const Hero = () => {
@@ -21,12 +22,15 @@ const Hero = () => {
                 Health Institues management system
               </Best>
               <Buttonwrap>
-                <Button>
-                  {" "}
-                  <HiDocumentDuplicate style={style} />
-                  Try it Demo
-                </Button>
-                <Button>
+                <Link to="/login" style={{ textDecoration: "none" }}>
+                  <Button>
+                    {" "}
+                    <HiDocumentDuplicate style={style} />
+                    Try it Demo
+                  </Button>
+                </Link>
+
+                <Button style={{ display: "none" }}>
                   <FaGraduationCap style={style} />
                   Documentation
                 </Button>
@@ -105,7 +109,7 @@ const Layer1 = styled.div`
   margin-top: 40px;
   height: 40px;
   width: 400px;
-  font-family: poppins;
+  font-family: "Poppins", sans-serif;
   background-color: rgba(0, 0, 255, 0.1);
   color: #3100ff;
   font-weight: 500;
@@ -122,7 +126,7 @@ const Best = styled.div`
 `;
 
 const Trust = styled.div`
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
   margin-top: 20px;

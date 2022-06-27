@@ -11,8 +11,15 @@ const Header = () => {
           <Link to="/" style={{ textDecoration: "none" }}>
             {" "}
             <Logo>
-              U-care
-              <span style={{ color: "rgb(255, 182, 1)", fontWeight: 700 }}>
+              <img src="/assets/hoslogo.webp" />
+
+              <span
+                style={{
+                  color: "rgb(255, 182, 1)",
+                  fontWeight: 700,
+                  display: "none",
+                }}
+              >
                 .
               </span>
             </Logo>
@@ -20,7 +27,7 @@ const Header = () => {
 
           <NavHold>
             <Link to="/all-hospitals" style={{ textDecoration: "none" }}>
-              <span>View Hospitals</span>
+              <span>Find Hospitals</span>
             </Link>
 
             <Nav>Home</Nav>
@@ -28,7 +35,7 @@ const Header = () => {
             <Nav>Contact</Nav>
             <Nav>Support</Nav>
             <Link
-              to="/register"
+              to="/login"
               style={{ color: "white", textDecoration: "none" }}
             >
               <button>Try Now</button>
@@ -72,6 +79,11 @@ const Logo = styled.div`
   font-weight: 700;
   font-size: 30px;
   color: var(--color);
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
 `;
 const NavHold = styled.div`
   display: flex;
@@ -81,9 +93,9 @@ const NavHold = styled.div`
   /* width: 500px; */
   button {
     background-color: var(--color);
-    border-radius: 15px;
-    width: 120px;
-    height: 45px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px 25px;
     outline: none;
     border: 0;
     margin-left: 10px;
@@ -94,6 +106,10 @@ const NavHold = styled.div`
     :hover {
       background-color: var(--light);
     }
+  }
+
+  span {
+    font-weight: 600;
   }
   @media screen and (max-width: 1024px) {
   }

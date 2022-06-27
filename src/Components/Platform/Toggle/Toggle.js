@@ -7,22 +7,22 @@ const SignUpe = () => {
   const [hospitalData, setHospitalData] = useState();
   console.log(hospitalId);
 
-  //   const getHospital = async () => {
-  //     // const mainUrl = "http://localhost:1210";
-  //     // const url = `${mainUrl}/company`;
-  //     const url2 = `http://localhost:1210/api/hospital/${hospitalId}`;
-  //     await axios
-  //       .get(url2)
-  //       .then((res) => {
-  //         // console.log(res);
+    const getHospital = async () => {
+      // const mainUrl = "http://localhost:1210";
+      // const url = `${mainUrl}/company`;
+      const url2 = `http://localhost:1210/api/hospital/${hospitalId}`;
+      await axios
+        .get(url2)
+        .then((res) => {
+          // console.log(res);
 
-  //         console.log(res);
-  //         setHospitalData(res.data.data);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err.message);
-  //       });
-  //   };
+          console.log(res);
+          setHospitalData(res.data.data);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    };
 
   useEffect(() => {
     console.log(hospitalId);
