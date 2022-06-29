@@ -12,7 +12,7 @@ import React from "react";
 import { RiContactsBookFill } from "react-icons/ri";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-
+import moment from "moment";
 const PatientOverview = () => {
   const user = useSelector((state) => state.user);
   console.log(user);
@@ -71,7 +71,7 @@ const PatientOverview = () => {
                       <Title>Date of Birth:</Title>
                       <Show>
                         <BsCalendar2DateFill />
-                        <span>{user.DOB}</span>
+                        <span>{moment(user.DOB).format("MMMM d, YYYY")}</span>
                       </Show>
                     </GenWrap>
 

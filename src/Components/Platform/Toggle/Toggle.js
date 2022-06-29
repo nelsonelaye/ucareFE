@@ -43,7 +43,7 @@ const SignUpe = () => {
               style={{ textDecoration: "none", color: "initial" }}
             >
               <PatientCard>
-                <Avatar src="/assets/girl.jpg" />
+                <Avatar src="/assets/img2.jpg" />
                 <Notes>
                   <span>I'm the Admin </span>
                   <p>Let's save lives</p>
@@ -70,7 +70,7 @@ const SignUpe = () => {
               style={{ textDecoration: "none", color: "initial" }}
             >
               <PatientCard>
-                <Avatar src="/assets/girl.jpg" />
+                <Avatar src="/assets/img1.jpg" />
                 <Notes>
                   <span>I'm a Patient </span>
                   <p>Getting the best care is the ultimate</p>
@@ -89,27 +89,26 @@ const SignUpe = () => {
 
 export default SignUpe;
 const PatientCard = styled.div`
-display:flex;
-height:auto;
-align-items: center;
-justify-content: center;
-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-padding: 10px 25px;
-cursor pointer;
-box-sizing: border-box;
-border-radius:5px;
-margin-top: 30px;
-transition: all 350ms;
-width: 100%;
-:hover{
-    box-shadow:none;
-    border: 1px solid rgba(0, 0 , 255, 0.6);
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 10px 25px;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-top: 30px;
+  transition: all 350ms;
+  width: 320px;
+  /* width: 100%; */
+  :hover {
+    box-shadow: none;
+    border: 1px solid rgba(0, 0, 255, 0.6);
     transform: scale(1.009);
-
-}
+  }
 `;
 const Notes = styled.div`
-  line-height: 5px;
   padding: 0px 20px;
   width: 90%;
   span {
@@ -118,6 +117,8 @@ const Notes = styled.div`
   }
   p {
     font-size: 13px;
+    margin: 0;
+    line-height: 20px;
   }
 `;
 const Avatar = styled.img`
@@ -152,7 +153,6 @@ const Everyhold = styled.div`
 const Undraw = styled.img`
   height: 100%;
   width: 100%;
-
   object-fit: cover;
 `;
 const Card1 = styled.div`
@@ -164,7 +164,6 @@ const Card1 = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   @media screen and (max-width: 800px) {
     border-radius: 10px;
     // width: 340px;
@@ -179,7 +178,6 @@ const Card2 = styled.div`
   display: flex;
   color: white;
   flex-direction: column;
-
   align-items: center;
   @media screen and (max-width: 800px) {
     display: none;

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "uhd": "1003",
+    "name": "Smith",
+    "phone": "08167898734",
+    "gender": "Male",
+    "image": "/assets/adedoyin.jpg"
+  },
+  {
+    "id": "2",
+    "uhd": "1005",
+    "name": "Adedayo",
+    "phone": "08189709845",
+    "gender": "Male",
+    "image": "/assets/girl.jpg"
+  },
+  {
+    "id": "3",
+    "uhd": "1078",
+    "name": "Jones",
+    "phone": "08112365478",
+    "gender": "Female",
+    "image": "/assets/nduka.jpg"
+  },
+  {
+    "id": "4",
+    "uhd": "1003",
+    "name": "Gideon",
+    "phone": "08167898734",
+    "gender": "Male",
+    "image": "/assets/nduka.jpg"
+  },
+  {
+    "id": "5",
+    "uhd": "1003",
+    "name": "Tonia",
+    "phone": "08060823456",
+    "gender": "Female",
+    "image": "/assets/lanu.jpg"
+  },
+  {
+    "id": "6",
+    "uhd": "1056",
+    "name": "Ruth",
+    "phone": "08167898734",
+    "gender": "Female",
+    "image": "/assets/lanu.jpg"
+  }
+]

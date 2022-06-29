@@ -136,8 +136,8 @@ const Birth = styled.div`
 const Contact = styled.div`
   display: flex;
   background: white;
-  border-radius;
-  border:1px solid grey;
+  border-radius: 5px;
+  border: 1px solid grey;
   align-items: center;
   @media screen and (max-width: 768px) {
     flex-direction: column;
@@ -180,12 +180,15 @@ const ProfileWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 `;
 
 const Profile = styled.div`
   height: 310px;
   width: 280px;
   border: 1px solid grey;
+  display: flex;
+
   // background: url("/images/profbak.png");
   border-radius: 10px;
   // background-position: center;

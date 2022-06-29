@@ -1,37 +1,9 @@
 import AdminHead from "./Head";
 import AdminNav from "./Nav";
-import Let from "./PatientTable";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import TableAppoint from "./TableAppoint";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
 const ParientArrange = () => {
-  const [allPatients, setAllPatients] = useState([]);
-
-  // const allPatients = [];
-  const user = useSelector((state) => state.user);
-  console.log(user);
-  const hospitalId = user._id;
-
-  const getPatients = async () => {
-    const mainURL = "";
-    const localURL = "http://localhost:1210";
-    const url = `${localURL}/api/hospital/${hospitalId}/patient/all`;
-    await axios
-      .get(url)
-      .then((res) => {
-        console.log("this is the response", res?.data?.data);
-        setAllPatients(res?.data?.data?.patients);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  };
-
-  useEffect(() => {
-    getPatients();
-    // setAllPatients(user.patients);
-  }, []);
   return (
     <Container>
       <Left>
@@ -43,7 +15,7 @@ const ParientArrange = () => {
         </Headers>
         <Overviews>
           <PatientHold>
-            <Let />
+            <TableAppoint />
           </PatientHold>
         </Overviews>
       </Right>
@@ -65,16 +37,14 @@ const Headers = styled.div`
   height: 60px;
   width: 100%;
   background-color: white;
-  box-sizing: border-box;
 `;
 const Overviews = styled.div`
   flex: 1;
   width: 100%;
   padding: 10px 0px;
-  box-sizing: border-box;
   // background-color:blue;
   height: 100%;
-  display: flex;
+  display: felx;
   justify-content: center;
 `;
 
@@ -82,7 +52,6 @@ const Right = styled.div`
   height: 100%;
   min-height: 100vh;
   width: 85%;
-  box-sizing: border-box;
   // background-color:red ;
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -90,6 +59,7 @@ const Right = styled.div`
 `;
 const Left = styled.div`
   height: 100vh;
+
   background-color: blue;
   @media screen and (max-width: 768px) {
     display: none;

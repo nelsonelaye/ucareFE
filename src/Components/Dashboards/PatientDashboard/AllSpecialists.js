@@ -13,7 +13,7 @@ const AllSpecialists = () => {
   // const allDoctors = [];
   const user = useSelector((state) => state.user);
   // console.log(user);
-  const hospitalId = user._id;
+  const hospitalId = user.hospital;
 
   const getDoctors = async () => {
     const mainURL = "";

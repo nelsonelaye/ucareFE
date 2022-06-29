@@ -17,7 +17,7 @@ import MultiUser from "../Platform/Toggle/Toggle";
 import HospitalDetail from "../Platform/HospitalDetailed/Home";
 import HospitalList from "../Platform/HospitalList/HospitalList";
 import Allpatients from "../Dashboards/DoctorDashboard/AllPatients";
-import Appointment from "../Dashboards/PatientDashboard/Appointment";
+import CreateAppointment from "../Dashboards/PatientDashboard/CreateAppointment";
 import ConfirmAppoint from "../Dashboards/DoctorDashboard/ConfirmAppoint";
 import CreateProfile from "../Dashboards/PatientDashboard/CreateProfile";
 import AdminCreateProfile from "../Dashboards/PatientDashboard/CreateProfile";
@@ -53,7 +53,7 @@ function MainRoutes() {
 
             <Route path="/hospital/:hospitalId/admin" element={<SignIn />} />
             <Route path="/create" element={<CreateProfile />} />
-            <Route path="/appoint" element={<Appointment />} />
+            <Route path="/appoint" element={<CreateAppointment />} />
             <Route path="/otp" element={<OTP />} />
             <Route
               path="/api/hospital/:hospitalId/:token/otp"

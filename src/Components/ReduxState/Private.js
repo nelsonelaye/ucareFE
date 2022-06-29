@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import AdminDashboard from "../Dashboards/AdminDashboard/AdminOverview";
+import AdminDashboard from "../Dashboards/AdminDashboard/AdminView";
+// import AdminDashboard from "../Dashboards/AdminDashboard/AdminOverview";
 import DoctorDashboard from "../Dashboards/DoctorDashboard/DocOverview";
 import PatientDashboard from "../Dashboards/PatientDashboard/PatientOverview";
 import Home from "../Home/Home";

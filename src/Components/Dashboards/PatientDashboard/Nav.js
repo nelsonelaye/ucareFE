@@ -57,7 +57,7 @@ const AdminNav = () => {
           ) : null}
 
           <Top>
-            <NavLink to="/patient-overview" style={{ textDecoration: "none" }}>
+            <NavLink to="/" style={{ textDecoration: "none" }}>
               <Holder>
                 <BsBarChart />
                 <span>OverView</span>
@@ -71,7 +71,10 @@ const AdminNav = () => {
               </Holder>
             </NavLink>
 
-            <NavLink to="/appoint" style={{ textDecoration: "none" }}>
+            <NavLink
+              to="/create-appointment"
+              style={{ textDecoration: "none" }}
+            >
               <Holder>
                 <FaCalendarAlt />
                 <span>Book Appointment</span>

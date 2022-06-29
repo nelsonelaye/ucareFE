@@ -14,7 +14,7 @@ import MultiUser from "../Platform/Toggle/Toggle";
 import HospitalDetail from "../Platform/HospitalDetailed/Home";
 import HospitalList from "../Platform/HospitalList/HospitalList";
 import Allpatients from "../Dashboards/DoctorDashboard/AllPatients";
-import Appointment from "../Dashboards/PatientDashboard/Appointment";
+import Appointments from "../Dashboards/DoctorDashboard/AllAppointments";
 import ConfirmAppoint from "../Dashboards/DoctorDashboard/ConfirmAppoint";
 import CreateProfile from "../Dashboards/PatientDashboard/CreateProfile";
 import AdminCreateProfile from "../Dashboards/PatientDashboard/CreateProfile";
@@ -43,8 +43,8 @@ function DoctorRoutes() {
 
             <Route path="/doctor-overview" element={<DocOverview />} />
             <Route path="/Dcreate" element={<DocCreate />} />
-            <Route path="/appoint" element={<Appointment />} />
             <Route path="/allpatient" element={<Allpatients />} />
+            <Route path="/all-appointments" element={<Appointments />} />
             <Route path="/confirm" element={<ConfirmAppoint />} />
 
             <Route path="/confirm" element={<ConfirmAppoint />} />

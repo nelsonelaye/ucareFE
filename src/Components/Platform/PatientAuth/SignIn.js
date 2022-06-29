@@ -61,7 +61,7 @@ const SignIn = () => {
       title: "Login Successful!",
       html: `<p>${res.data.data}</p>`,
     });
-    navigate("/patient-overview");
+    navigate("/");
   });
 
   return (

@@ -85,13 +85,13 @@ const AdminNav = () => {
                 <span>All Patients</span>
               </Holder>
             </NavLink>
-
-            <MyLink>
+            <NavLink to="/all-appointments" style={{ textDecoration: "none" }}>
+              {" "}
               <Holder>
                 <FaBriefcaseMedical />
-                <span>View ALl Appointments</span>
+                <span>View All Appointments</span>
               </Holder>
-            </MyLink>
+            </NavLink>
           </Top>
           <Bottom>
             <Holder

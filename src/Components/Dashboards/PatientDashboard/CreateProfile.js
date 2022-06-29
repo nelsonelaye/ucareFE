@@ -76,7 +76,7 @@ const UpdatePatient = () => {
     const res = await axios.patch(url, formData, config);
     console.log(res);
     dispatch(createUser(res.data.data));
-    navigate("/patient-overview");
+    navigate("/");
     Swal.fire({
       icon: "success",
       title: "Profile Updated!",
