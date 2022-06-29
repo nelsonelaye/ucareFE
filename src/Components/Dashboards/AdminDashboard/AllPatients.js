@@ -3,19 +3,8 @@ import AdminNav from "./Nav";
 import AllPatients from "./AllPatients";
 import React from "react";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
 
 const ParientArrange = () => {
-  const [allPatients, setAllPatients] = useState([]);
-
-  // const allPatients = [];
-  const user = useSelector((state) => state.user);
-  console.log(user);
-  const hospitalId = user._id;
-
-  useEffect(() => {
-    setAllPatients(user.patients);
-  }, []);
   return (
     <Container>
       <Left>
