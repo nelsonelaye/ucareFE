@@ -25,8 +25,15 @@ const Hero = () => {
                 <Link to="/login" style={{ textDecoration: "none" }}>
                   <Button>
                     {" "}
-                    <HiDocumentDuplicate style={style} />
-                    Try it Demo
+                    <HiDocumentDuplicate
+                      style={{
+                        color: "blue",
+                        height: "20px",
+                        width: "20px",
+                        marginRight: "10px",
+                      }}
+                    />
+                    Try Demo
                   </Button>
                 </Link>
 
@@ -82,7 +89,9 @@ const Features = styled.div`
   justify-content: center;
   font-size: 2rem;
   margin-top: 20px;
-  color: red;
+  color: black;
+  text-transform: capitalize;
+  font-weight: 600;
   /* align-items: center; */
   span {
     color: red;
@@ -151,6 +160,7 @@ const Button = styled.div`
   border: 1px solid blue;
   font-weight: 500;
   font-size: 0.8rem;
+  font-weight: 600;
   /* background-color: #0000ff; */
 `;
 const Right = styled.div`

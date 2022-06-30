@@ -101,7 +101,7 @@ const SignUp = () => {
     Swal.fire({
       icon: "success",
       title: "Successful!",
-      text: "Complete your mail for verification.",
+      text: "Check your mail for verification.",
       footer: "Check your spam folder if mail is not found",
     });
   });

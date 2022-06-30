@@ -41,6 +41,7 @@ const SignIn = () => {
     };
 
     const res = await axios.post(url, { email, password });
+   
     if (res.data.data) {
       console.log(res);
       dispatch(createUser(res.data.data));
@@ -56,11 +57,11 @@ const SignIn = () => {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: `Something went wrong!`,
+        text: JSON.stringify(res.data.message),
+        // text: `Something went wrong!`,
       });
     }
   });
-
   return (
     <Container>
       <Wrapper>

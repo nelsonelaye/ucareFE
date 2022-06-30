@@ -38,7 +38,7 @@ const Home = () => {
           <Header image={hospitalData.logo} hospitalId={hospitalData._id} />
 
           <SecondContainer>
-            <Image src="/assets/doctors.jpg" />
+            <Image src="/assets/doctors.png" />
 
             <Wrapper>
               <Titles>{hospitalData.hospitalName}</Titles>

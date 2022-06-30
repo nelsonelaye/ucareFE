@@ -6,7 +6,7 @@ const About = ({ desc, hospitalName }) => {
     <Container id="about">
       <AboutWrapper>
         <Pictures>
-          <img src="/assets/girl.jpg" />
+          <img src="/assets/doctor.jpg" />
         </Pictures>
         <Composition>
           <Headline>About {hospitalName}</Headline>
