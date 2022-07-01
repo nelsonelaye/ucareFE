@@ -5,7 +5,7 @@ const Testing = (props) => {
   return (
     <Cards>
       <Icons>
-        <span>{props.spane}</span>
+        <span>{props.spane ? props.spane : null}</span>
         <IconHold IColor={props.IColor}>{props.Icontag}</IconHold>
       </Icons>
       <Test tColor={props.tColor}>{props.texts}</Test>

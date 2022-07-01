@@ -45,7 +45,7 @@ const SignUpe = () => {
               <PatientCard>
                 <Avatar src="/assets/img2.jpg" />
                 <Notes>
-                  <span>I'm the Admin </span>
+                  <span>I'm an Admin </span>
                   <p>Let's save lives</p>
                 </Notes>
               </PatientCard>
@@ -112,8 +112,9 @@ const Notes = styled.div`
   padding: 0px 20px;
   width: 90%;
   span {
-    font-weight: 600;
-    font-size: 15px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
   }
   p {
     font-size: 13px;

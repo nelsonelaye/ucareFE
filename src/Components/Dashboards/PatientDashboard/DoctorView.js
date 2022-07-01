@@ -5,16 +5,32 @@ import { BsCalendar2DateFill } from "react-icons/bs";
 import { FaMale } from "react-icons/fa";
 import { HiIdentification } from "react-icons/hi";
 import { MdPlace } from "react-icons/md";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { RiContactsBookFill } from "react-icons/ri";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import axios from "axios";
 const DocOverview = () => {
+  const { doctorId } = useParams();
+  const [doctor, setDoctor] = useState();
   const user = useSelector((state) => state.user);
   console.log(user);
 
+  const hospitalId = user.hospital;
+
+  const getDoctors = async () => {
+    const mainURL = "http://localhost:1210";
+    const url = `${mainURL}/api/hospital/${hospitalId}/doctor/${doctorId}`;
+    const res = await axios.get(url);
+    console.log("this doctor ", res);
+    setDoctor(res.data.data);
+  };
+
+  useEffect(() => {
+    getDoctors();
+  }, []);
   return (
     <Container>
       {user ? (
@@ -27,68 +43,88 @@ const DocOverview = () => {
               <AdminHead />
             </Headers>
             <Overviews>
-              <First>
-                <Profile>
-                  <ProfileWrap>
-                    <Pics src={user.avatar} />
-                    <Name>Doctor {`${user.lastName} ${user.firstName}`}</Name>
-                    <Patient>{user.specialization}</Patient>
-                  </ProfileWrap>
-                </Profile>
+              <Navigate>
+                <Link to="/Home" style={{ textDecoration: "none" }}>
+                  <span>Home / </span>
+                </Link>
+                <Link to="/doc" style={{ textDecoration: "none" }}>
+                  <span>All Doctors / </span>
+                </Link>
+                <Link
+                  to={`/doctor/${doctorId}/detail`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <span>Doctor details </span>
+                </Link>
+              </Navigate>
+              {doctor ? (
+                <First>
+                  <Profile>
+                    <ProfileWrap>
+                      <Pics src={doctor.avatar} />
+                      <Name>
+                        Doctor {`${doctor.lastName} ${doctor.firstName}`}
+                      </Name>
+                      <Patient>{doctor.specialization}</Patient>
+                    </ProfileWrap>
+                  </Profile>
 
-                <Contact>
-                  <Gender>
-                    <GenWrap>
-                      <Title>Gender: </Title>
-                      <Show>
-                        <FaMale />
-                        <span>{user.gender}</span>
-                      </Show>
-                    </GenWrap>
-                    <GenWrap>
-                      <Title>Email:</Title>
-                      <Show>
-                        <AiFillMail />
+                  <Contact>
+                    <Gender>
+                      <GenWrap>
+                        <Title>Gender: </Title>
+                        <Show>
+                          <FaMale />
+                          <span>{doctor.gender}</span>
+                        </Show>
+                      </GenWrap>
+                      <GenWrap>
+                        <Title>Email:</Title>
+                        <Show>
+                          <AiFillMail />
 
-                        <span>{user.email}</span>
-                      </Show>
-                    </GenWrap>
-                    <GenWrap>
-                      <Title>Contact:</Title>
-                      <Show>
-                        <RiContactsBookFill />
+                          <span>{doctor.email}</span>
+                        </Show>
+                      </GenWrap>
+                      <GenWrap>
+                        <Title>Contact:</Title>
+                        <Show>
+                          <RiContactsBookFill />
 
-                        <span>{user.telephone}</span>
-                      </Show>
-                    </GenWrap>
-                  </Gender>
-                  <Birth>
-                    <GenWrap>
-                      <Title>Date of Birth:</Title>
-                      <Show>
-                        <BsCalendar2DateFill />
-                        <span>{moment(user.DOB).format("MMMM d, YYYY")}</span>
-                      </Show>
-                    </GenWrap>
-                    <GenWrap>
-                      <Title>Address:</Title>
-                      <Show>
-                        <MdPlace />
+                          <span>{doctor.telephone}</span>
+                        </Show>
+                      </GenWrap>
+                    </Gender>
+                    <Birth>
+                      <GenWrap>
+                        <Title>Date of Birth:</Title>
+                        <Show>
+                          <BsCalendar2DateFill />
+                          <span>
+                            {moment(doctor.DOB).format("MMMM d, YYYY")}
+                          </span>
+                        </Show>
+                      </GenWrap>
+                      <GenWrap>
+                        <Title>Address:</Title>
+                        <Show>
+                          <MdPlace />
 
-                        <span>18, Alaba Street Amukoko.</span>
-                      </Show>
-                    </GenWrap>
-                    <GenWrap>
-                      <Title>Role:</Title>
-                      <Show>
-                        <HiIdentification />
+                          <span>18, Alaba Street Amukoko.</span>
+                        </Show>
+                      </GenWrap>
+                      <GenWrap>
+                        <Title>Role:</Title>
+                        <Show>
+                          <HiIdentification />
 
-                        <span>{user.specialization}</span>
-                      </Show>
-                    </GenWrap>
-                  </Birth>
-                </Contact>
-              </First>
+                          <span>{doctor.specialization}</span>
+                        </Show>
+                      </GenWrap>
+                    </Birth>
+                  </Contact>
+                </First>
+              ) : null}
             </Overviews>
           </Right>
         </>
@@ -215,6 +251,19 @@ const First = styled.div`
   }
 `;
 
+const Navigate = styled.div`
+  width: 90%;
+  margin: 20px;
+
+  span {
+    font-size: 13px;
+    transition: all 350ms;
+
+    :hover {
+      text-decoration: underline;
+    }
+  }
+`;
 const Headers = styled.div`
   height: 60px;
   width: 100%;
@@ -223,7 +272,7 @@ const Headers = styled.div`
 const Overviews = styled.div`
   flex: 1;
   width: 100%;
-
+  flex-direction: column;
   display: flex;
   justify-content: center;
   /* height:100% ; */

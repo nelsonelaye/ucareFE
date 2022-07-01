@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const AllSpecialists = () => {
   const [allDoctors, setAllDoctors] = useState([]);
@@ -61,7 +62,12 @@ const AllSpecialists = () => {
                     <span>Specialty</span>
                   </Age>
                 </Year>
-                <Prt2>View Proflie</Prt2>
+                <Link
+                  to={`/doctor/${props._id}/detail`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <Prt2>View Proflie</Prt2>
+                </Link>
               </Carde>
               // </CardHold>
             ))}
@@ -140,9 +146,8 @@ const Prt1 = styled.div`
 const Prt2 = styled.div`
   color: white;
   margin-top: 50px;
-  padding: 10px 0px;
+  padding: 10px 30px;
   text-align: center;
-  width: 70%;
   font-weight: 600;
   border-radius: 5px;
   cursor: pointer;

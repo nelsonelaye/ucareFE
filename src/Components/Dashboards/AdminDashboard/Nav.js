@@ -28,7 +28,7 @@ const AdminNav = () => {
 
   const logOut = () => {
     dispatch(removeUser());
-    navigate("/login");
+    navigate(`/hospital/${hospitalId}/detail`);
   };
 
   const getHospital = async () => {

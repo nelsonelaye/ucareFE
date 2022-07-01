@@ -57,7 +57,7 @@ const AdminNav = () => {
           ) : null}
 
           <Top>
-            <NavLink to="/" style={{ textDecoration: "none" }}>
+            <NavLink to="/patient-overview" style={{ textDecoration: "none" }}>
               <Holder>
                 <BsBarChart />
                 <span>OverView</span>
@@ -86,12 +86,14 @@ const AdminNav = () => {
                 <span>Specialists</span>
               </Holder>
             </NavLink>
-            <MyLink>
+
+            <NavLink to="/history" style={{ textDecoration: "none" }}>
+              {" "}
               <Holder>
                 <FaBriefcaseMedical />
-                <span>Medical History</span>
+                <span>Appointment History</span>
               </Holder>
-            </MyLink>
+            </NavLink>
           </Top>
           <Bottom>
             <Holder

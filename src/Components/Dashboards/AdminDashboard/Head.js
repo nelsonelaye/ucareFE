@@ -15,8 +15,8 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useSelector } from "react-redux";
 const AdminHead = () => {
   const user = useSelector((state) => state.user);
-  console.log(user)
-  
+  console.log(user);
+
   return (
     <Container>
       <Top>
@@ -246,6 +246,7 @@ const Name = styled.div`
   margin-right: 10px;
   margin-left: 10px;
   font-weight: 600;
+  text-transform: capitalize;
 `;
 const Image = styled.img`
   width: 40px;

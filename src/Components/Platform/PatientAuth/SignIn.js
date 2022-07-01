@@ -36,32 +36,32 @@ const SignIn = () => {
     const url = `${mainURL}/api/hospital/${hospitalId}/patient/login`;
 
     const res = await axios.post(url, { email, password });
-    // if (res.data.data) {
-    //   console.log(res);
-    //   dispatch(createUser(res.data.data));
-    //   Swal.fire({
-    //     icon: "success",
-    //     title: "Login Successful!",
-    //     html: `<p>Let's save lives!</p>`,
-    //   });
-    //   navigate("/doctor-overview");
-    // } else {
-    //   console.log(res);
+    if (res.data.data) {
+      console.log(res);
+      dispatch(createUser(res.data.data));
+      Swal.fire({
+        icon: "success",
+        title: "Login Successful!",
+        html: `<p>Let's save lives!</p>`,
+      });
+      navigate("/patient-overview");
+    } else {
+      console.log(res);
 
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Oops...",
-    //     text: `Something went wrong! ${res.response.data.message}`,
-    //   });
-    // }
-    console.log(res);
-    dispatch(createUser(res.data.data));
-    Swal.fire({
-      icon: "success",
-      title: "Login Successful!",
-      html: `<p>${res.data.data}</p>`,
-    });
-    navigate("/");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: JSON.stringify(res.data.data.message),
+      });
+    }
+    // console.log(res);
+    // dispatch(createUser(res.data.data));
+    // Swal.fire({
+    //   icon: "success",
+    //   title: "Login Successful!",
+    //   text: JSON.stringify(res.data.data.status),
+    // });
+    // navigate("/");
   });
 
   return (

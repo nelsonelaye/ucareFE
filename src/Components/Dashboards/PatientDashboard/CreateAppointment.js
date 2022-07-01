@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AdminHead from "./Head";
 import AdminNav from "./Nav";
@@ -12,6 +12,7 @@ import { createUser } from "../../ReduxState/Global";
 import { Link, useNavigate, useParams } from "react-router-dom";
 const ParientArrange = () => {
   const navigate = useNavigate();
+  const [doctors, setDoctors] = useState();
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const hospitalId = user.hospital;
@@ -25,8 +26,8 @@ const ParientArrange = () => {
     specialist: yup.string(),
     department: yup.string(),
     brief: yup.string(),
-    date: yup.date(),
-    time: yup.date(),
+    dateAndTime: yup.date(),
+    doctorId: yup.string(),
   });
 
   const {
@@ -48,12 +49,11 @@ const ParientArrange = () => {
       specialist,
       department,
       brief,
-      date,
-      time,
+      dateAndTime,
+      doctorId,
     } = value;
 
     const config = {
-      "content-type": "multipart/form-data",
       headers: {
         authorization: `Bearer ${user.token}`,
       },
@@ -71,11 +71,12 @@ const ParientArrange = () => {
         specialist,
         department,
         brief,
-        date,
-        time,
+        dateAndTime,
+        doctorId,
       },
       config
     );
+
     console.log(res);
     dispatch(createUser(res.data.data));
     navigate("/");
@@ -85,6 +86,19 @@ const ParientArrange = () => {
       html: `<b>An email will be sent to your inbox with confirmation date and time</b>`,
     });
   });
+
+  const getDoctors = async () => {
+    const mainURL = "http://localhost:1210";
+    const url = `${mainURL}/api/hospital/${hospitalId}/doctor/all`;
+
+    const res = await axios.get(url);
+    console.log(res.data.data);
+    setDoctors(res.data.data.doctors);
+  };
+
+  useEffect(() => {
+    getDoctors();
+  }, []);
   return (
     <Container>
       <Left>
@@ -140,11 +154,21 @@ const ParientArrange = () => {
 
                   <span>Select a Specialist</span>
                   <select {...register("specialist")}>
-                    <option true disabled>
+                    <option selected disabled>
                       Select Specialist
                     </option>
-                    <option value="">Surgeon</option>
-                    <option value="">Radilologist</option>
+                    <option value="Surgeon">Surgeon</option>
+                    <option value="Radilologist">Radilologist</option>
+                    <option value="Psychiatrist">Psychiatrist</option>
+                    <option value="Pediatricians">Pediatricians</option>
+                    <option value="Geneticists">Geneticists</option>
+                    <option value="Nephrologists">Nephrologists</option>
+                    <option value="Sleep Medicine Specialist">
+                      Sleep Medicine Specialist
+                    </option>
+                    <option value="Gynecologists">Gynecologists</option>
+                    <option value="Dermatologists">Dermatologists</option>
+                    <option value="Other">Other</option>
                   </select>
                 </Inputer>
 
@@ -153,11 +177,23 @@ const ParientArrange = () => {
 
                   <span> Select a Deparment</span>
                   <select {...register("department")}>
-                    <option true disabled>
+                    <option selected disabled>
                       Select a department
                     </option>
-                    <option value="">ICU</option>
-                    <option value="">...</option>
+                    <option value="Intensive Care Unit">ICU</option>
+                    <option value="Nutrition and Dietetics">
+                      Nutrition and Dietetics
+                    </option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="Sexual Health">Sexual Health</option>
+                    <option value="Physiotherapy">Physiotherapy</option>
+                    <option value="Medicine">Medicine</option>
+                    <option value="Skin">Skin</option>
+                    <option value="Dental">Dental</option>
+                    <option value="Eye Centre">Eye Centre</option>
+                    <option value="Maternity">Maternity</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="General Surgery">General Surgery</option>
                   </select>
                 </Inputer>
               </Double>
@@ -173,13 +209,20 @@ const ParientArrange = () => {
               </Inputer>
               <Double>
                 <Inputer>
-                  {errors.date && errors.date.message}
-                  <span>Date</span>
-                  <input
-                    type="date"
-                    placeholder="Select Date"
-                    {...register("date")}
-                  />
+                  {errors.doctorId && errors.doctorId.message}
+                  <span>Doctor</span>
+                  <select {...register("doctorId")}>
+                    <option selected disabled style={{ color: "grey" }}>
+                      Select Doctor
+                    </option>
+                    {doctors?.map((props) => (
+                      <>
+                        <option value={props._id}>
+                          {props.firstName} {props.lastName}
+                        </option>
+                      </>
+                    ))}
+                  </select>
                 </Inputer>
                 <Inputer>
                   <div>{errors.time && errors.time.message}</div>
@@ -187,7 +230,7 @@ const ParientArrange = () => {
                   <input
                     type="datetime-local"
                     placeholder="Select time"
-                    {...register("time")}
+                    {...register("dateAndTime")}
                   />
                 </Inputer>
               </Double>

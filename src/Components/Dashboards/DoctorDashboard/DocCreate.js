@@ -11,14 +11,19 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../../ReduxState/Global";
 const DocCreate = () => {
-  const [avatar, setAvatar] = useState();
+  // const [avatar, setAvatar] = useState();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const [avatar, setAvatar] = useState(user.avatar);
+
   const dispatch = useDispatch();
   const hospitalId = user.hospital;
   const doctorId = user._id;
+
   const handleImage = (e) => {
     const file = e.target.files[0];
+    const save = URL.createObjectURL(file);
+    // setImage(save);
     setAvatar(file);
   };
 
@@ -86,6 +91,7 @@ const DocCreate = () => {
       html: `<b>Keep doing magic</b>`,
     });
   });
+
   return (
     <Container>
       <Left>
@@ -97,49 +103,19 @@ const DocCreate = () => {
         </Headers>
         <Overviews>
           <MainHold>
-            <BlueBack>Create Doctor Profile</BlueBack>
+            <BlueBack>Update Profile</BlueBack>
             <AllForm onSubmit={onSubmit}>
-              <Inputer>
-                <span>Bio</span>
-                <textarea
-                  type="text"
-                  placeholder="Write your bio"
-                  {...register("bio")}
+              <ImageHolder>
+                <Image src={avatar} />
+                <ImageLabel htmlFor="pix">Upload Logo</ImageLabel>
+                <ImageInput
+                  id="pix"
+                  onChange={handleImage}
+                  type="file"
+                  accept="image/*"
                 />
-              </Inputer>
-              <Inputer>
-                <span>First Name</span>
-                <input
-                  type="text"
-                  placeholder="Enter your First Name"
-                  {...register("firstName")}
-                />
-              </Inputer>
-              <Inputer>
-                <span>Last Name</span>
-                <input
-                  type="text"
-                  placeholder="Enter your Last Name"
-                  {...register("lastName")}
-                />
-              </Inputer>
-              <Inputer>
-                <span> Date of Birth</span>
-                <input
-                  type="date"
-                  placeholder="Enter your Date of Birth"
-                  {...register("DOB")}
-                />
-              </Inputer>
-              <Inputer>
-                <span> Gender</span>
-                <input
-                  type="text"
-                  placeholder="Male or Female"
-                  {...register("gender")}
-                />
-              </Inputer>
-              <Inputer>
+              </ImageHolder>
+              <Inputer style={{ display: "none" }}>
                 <span>Profile Picture</span>
                 <input
                   type="file"
@@ -148,10 +124,62 @@ const DocCreate = () => {
                 />
               </Inputer>
               <Inputer>
+                <span>Bio</span>
+                <textarea
+                  type="text"
+                  placeholder={user.bio}
+                  value={user.bio}
+                  {...register("bio")}
+                />
+              </Inputer>
+              <Inputer>
+                <span>First Name</span>
+                <input
+                  type="text"
+                  placeholder={user.firstName}
+                  value={user.firstName}
+                  {...register("firstName")}
+                />
+              </Inputer>
+              <Inputer>
+                <span>Last Name</span>
+                <input
+                  type="text"
+                  placeholder={user.lastName}
+                  value={user.lastName}
+                  {...register("lastName")}
+                />
+              </Inputer>
+              <Inputer>
+                <span> Date of Birth</span>
+                <input
+                  type="date"
+                  placeholder={user.DOB}
+                  value={user.DOB}
+                  {...register("DOB")}
+                />
+              </Inputer>
+              <Inputer>
+                <span> Gender</span>
+                <select {...register("gender")}>
+                  <option
+                    selected
+                    style={{ color: "grey" }}
+                    value={user.gender}
+                  >
+                    {user.gender}
+                  </option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </Inputer>
+
+              <Inputer>
                 <span>Contact</span>
                 <input
                   type="tel"
-                  placeholder="08178867735"
+                  placeholder={user.telephone}
+                  value={user.telephone}
                   {...register("telephone")}
                 />
               </Inputer>
@@ -160,7 +188,8 @@ const DocCreate = () => {
                 <span>Secialisation</span>
                 <input
                   type="text"
-                  placeholder="Surgeon"
+                  placeholder={user.specialization}
+                  value={user.specialization}
                   {...register("specialization")}
                 />
               </Inputer>
@@ -169,7 +198,8 @@ const DocCreate = () => {
                 <span> Address</span>
                 <input
                   type="text"
-                  placeholder="Enter your Address"
+                  placeholder={user.address}
+                  value={user.address}
                   {...register("address")}
                 />
               </Inputer>
@@ -183,6 +213,45 @@ const DocCreate = () => {
 };
 
 export default DocCreate;
+
+const Image = styled.img`
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: darkorange;
+  margin-bottom: 20px;
+  transition: all 350ms;
+  :hover {
+    cursor: pointer;
+    transform: scale(1.02);
+  }
+`;
+
+const ImageHolder = styled.div`
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+`;
+
+const ImageInput = styled.input`
+  display: none;
+`;
+
+const ImageLabel = styled.label`
+  padding: 8px 15px;
+  background-color: var(--color);
+  color: white;
+  border-radius: 5px;
+  transition: all 350ms;
+  font-weight: 500;
+  :hover {
+    cursor: pointer;
+    transform: scale(1.01);
+  }
+`;
 
 const Buttons = styled.button`
   margin-top: 10px;

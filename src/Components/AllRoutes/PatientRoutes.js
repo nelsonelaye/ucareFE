@@ -16,7 +16,8 @@ import HospitalList from "../Platform/HospitalList/HospitalList";
 import PatientOverview from "../Dashboards/PatientDashboard/PatientOverview";
 import CreateAppointment from "../Dashboards/PatientDashboard/CreateAppointment";
 import CreateProfile from "../Dashboards/PatientDashboard/CreateProfile";
-import AdminCreateProfile from "../Dashboards/PatientDashboard/CreateProfile";
+import DoctorDetail from "../Dashboards/PatientDashboard/DoctorView";
+import Appointments from "../Dashboards/PatientDashboard/AllAppointments";
 import DocCreate from "../Dashboards/DoctorDashboard/DocCreate";
 import DocOverview from "../Dashboards/DoctorDashboard/DocOverview";
 import AdminOverview from "../Dashboards/AdminDashboard/AdminOverview";
@@ -42,16 +43,14 @@ function PatientRoutes() {
 
             <Route path="/create" element={<CreateProfile />} />
             <Route path="/create-appointment" element={<CreateAppointment />} />
-            <Route path="/otp" element={<OTP />} />
-            <Route
-              path="/api/hospital/:hospitalId/:token/otp"
-              element={<OTP />}
-            />
+
             <Route path="/doc" element={<Specialist />} />
+            <Route path="/history" element={<Appointments />} />
             <Route
               path="/hospital/:hospitalId/detail"
               element={<HospitalDetail />}
             />
+            <Route path="/doctor/:doctorId/detail" element={<DoctorDetail />} />
             <Route path="/hospital/:hospitalId/auth" element={<MultiUser />} />
 
             <Route path="/detail" element={<HospitalDetail />} />

@@ -16,7 +16,7 @@ import HospitalList from "../Platform/HospitalList/HospitalList";
 import Allpatients from "../Dashboards/DoctorDashboard/AllPatients";
 import Appointments from "../Dashboards/DoctorDashboard/AllAppointments";
 import ConfirmAppoint from "../Dashboards/DoctorDashboard/ConfirmAppoint";
-import CreateProfile from "../Dashboards/PatientDashboard/CreateProfile";
+import ViewAppointment from "../Dashboards/DoctorDashboard/DetailAppointment";
 import AdminCreateProfile from "../Dashboards/PatientDashboard/CreateProfile";
 import DocCreate from "../Dashboards/DoctorDashboard/DocCreate";
 import DocOverview from "../Dashboards/DoctorDashboard/DocOverview";
@@ -45,9 +45,14 @@ function DoctorRoutes() {
             <Route path="/Dcreate" element={<DocCreate />} />
             <Route path="/allpatient" element={<Allpatients />} />
             <Route path="/all-appointments" element={<Appointments />} />
-            <Route path="/confirm" element={<ConfirmAppoint />} />
-
-            <Route path="/confirm" element={<ConfirmAppoint />} />
+            <Route
+              path="/confirm/:appointmentId"
+              element={<ConfirmAppoint />}
+            />
+            <Route
+              path="/appointment/:appointmentId"
+              element={<ViewAppointment />}
+            />
 
             <Route path="/Docview" element={<DocOverview />} />
           </Routes>

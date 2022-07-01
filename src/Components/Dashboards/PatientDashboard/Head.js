@@ -232,6 +232,7 @@ const Name = styled.div`
   margin-right: 10px;
   margin-left: 10px;
   font-weight: 600;
+  text-transform: capitalize;
 `;
 const Image = styled.img`
   width: 40px;

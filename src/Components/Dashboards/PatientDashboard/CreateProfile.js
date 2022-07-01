@@ -27,9 +27,12 @@ const UpdatePatient = () => {
     firstName: yup.string(),
     lastName: yup.string(),
     telephone: yup.number(),
+    weight: yup.number(),
+    height: yup.number(),
     DOB: yup.date(),
     gender: yup.string(),
     address: yup.string(),
+    bloodGroup: yup.string(),
   });
 
   const {
@@ -53,6 +56,9 @@ const UpdatePatient = () => {
       address,
       city,
       gender,
+      bloodGroup,
+      weight,
+      height,
     } = value;
 
     const formData = new FormData();
@@ -63,6 +69,9 @@ const UpdatePatient = () => {
     formData.append("gender", gender);
     formData.append("DOB", DOB);
     formData.append("avatar", avatar);
+    formData.append("bloodGroup", bloodGroup);
+    formData.append("height", height);
+    formData.append("weight", weight);
 
     const config = {
       "content-type": "multipart/form-data",
@@ -83,6 +92,7 @@ const UpdatePatient = () => {
       html: `<b>Keep doing magic</b>`,
     });
   });
+
   return (
     <Container>
       <Left>
@@ -110,6 +120,7 @@ const UpdatePatient = () => {
                 <input
                   type="text"
                   placeholder="Enter your First Name"
+                  value={user.firstName}
                   {...register("firstName")}
                 />
               </Inputer>
@@ -118,6 +129,7 @@ const UpdatePatient = () => {
                 <input
                   type="text"
                   placeholder="Enter your Last Name"
+                  value={user.lastName}
                   {...register("lastName")}
                 />
               </Inputer>
@@ -125,27 +137,68 @@ const UpdatePatient = () => {
                 <span> Date of Birth</span>
                 <input
                   type="date"
-                  placeholder="Enter your Date of Birth"
+                  placeholder={user.DOB}
                   {...register("DOB")}
                 />
               </Inputer>
               <Inputer>
                 <span> Gender</span>
-                <input
-                  type="text"
-                  placeholder="Male or Female"
-                  {...register("gender")}
-                />
+                <select {...register("gender")}>
+                  <option
+                    selected
+                    style={{ color: "grey" }}
+                    value={user.gender}
+                  >
+                    {user.gender}
+                  </option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </Inputer>
+              <Inputer>
+                <span> Blood Group</span>
+                <select {...register("bloodGroup")}>
+                  <option
+                    selected
+                    style={{ color: "grey" }}
+                    value={user.bloodGroup}
+                  >
+                    {user.bloodGroup}
+                  </option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="O-">O-</option>
+                  <option value="O+">O+</option>
+                </select>
               </Inputer>
               <Inputer>
                 <span> Weight</span>
-                <input type="number" placeholder="Kg" />
+                <input
+                  type="number"
+                  placeholder={user.weight}
+                  value={user.weight}
+                  {...register("weight")}
+                />
+              </Inputer>
+              <Inputer>
+                <span> Height</span>
+                <input
+                  type="number"
+                  placeholder={user.height}
+                  value={user.height}
+                  {...register("height")}
+                />
               </Inputer>
               <Inputer>
                 <span>Contact</span>
                 <input
                   type="tel"
-                  placeholder="090XXXXXXX"
+                  placeholder={user.telephone}
+                  value={user.telephone}
                   {...register("telephone")}
                 />
               </Inputer>
@@ -154,6 +207,7 @@ const UpdatePatient = () => {
                 <input
                   type="text"
                   placeholder="Enter your Address"
+                  value={user.address}
                   {...register("address")}
                 />
               </Inputer>
@@ -201,6 +255,22 @@ const Inputer = styled.div`
     :focus {
       outline-color: rgba(0, 0, 255, 0.5);
     }
+  }
+
+  :placeholder {
+    color: red;
+  }
+`;
+
+const Double = styled.div`
+  display: flex;
+  width: 100%;
+  // flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    flex: 4;
   }
 `;
 const AllForm = styled.form`

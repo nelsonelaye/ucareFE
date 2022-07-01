@@ -133,6 +133,7 @@ const Name = styled.div`
   font-weight: 500;
   margin-bottom: 5px;
   transition: all 350ms;
+  text-transform: capitalize;
   :hover {
     text-decoration: underline;
   }

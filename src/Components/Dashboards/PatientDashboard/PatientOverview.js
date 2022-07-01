@@ -13,9 +13,12 @@ import { RiContactsBookFill } from "react-icons/ri";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
+import { useParams } from "react-router-dom";
+
 const PatientOverview = () => {
   const user = useSelector((state) => state.user);
   console.log(user);
+
   return (
     <Container>
       {user ? (
@@ -99,21 +102,21 @@ const PatientOverview = () => {
               <Second>
                 <Cards
                   tColor={"#305ED9"}
-                  spane="AB+"
+                  spane={user.bloodGroup}
                   Icontag={<MdBloodtype />}
                   texts="Blood Group"
                   IColor={"#305ED9"}
                 />
                 <Cards
                   tColor={"#E46B8F"}
-                  spane="120cm"
+                  spane={`${JSON.stringify(user.height)}cm`}
                   Icontag={<GiBodyHeight />}
                   texts="Height"
                   IColor={"#E46B8F"}
                 />
                 <Cards
                   tColor={"#4DB6AC"}
-                  spane="80kg"
+                  spane={`${user.weight}Kg`}
                   Icontag={<FaWeight />}
                   texts="Weight"
                   IColor={"#4DB6AC"}
@@ -121,7 +124,6 @@ const PatientOverview = () => {
               </Second>
 
               <Third>
-                <Graph></Graph>
                 <Appoint>
                   <HeaderBut>Upcoming Appointment</HeaderBut>
                   <AllAppoint>

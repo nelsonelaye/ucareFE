@@ -72,7 +72,10 @@ const AdminNav = () => {
               </Holder>
             </NavLink>
 
-            <NavLink to="/confirm" style={{ textDecoration: "none" }}>
+            <NavLink
+              to="/confirm"
+              style={{ textDecoration: "none", display: "none" }}
+            >
               <Holder>
                 <FaCalendarAlt />
                 <span>Confirm Appointment</span>
