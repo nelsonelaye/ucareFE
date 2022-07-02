@@ -40,27 +40,48 @@ const SignIn = () => {
       "content-type": "multipart/form-data",
     };
 
-    const res = await axios.post(url, { email, password });
-   
-    if (res.data.data) {
-      console.log(res);
-      dispatch(createUser(res.data.data));
-      Swal.fire({
-        icon: "success",
-        title: "Successful!",
-        html: `<b>Let's save lives!</b>`,
-      });
-      navigate("/");
-    } else {
-      console.log(res);
+    await axios
+      .post(url, { email, password })
+      .then((res) => {
+        console.log(res);
+        dispatch(createUser(res.data.data));
+        Swal.fire({
+          icon: "success",
+          title: "Successful!",
+          html: `<b>Let's save lives!</b>`,
+        });
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err.message);
 
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: JSON.stringify(res.data.message),
-        // text: `Something went wrong!`,
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: JSON.stringify(err.response),
+          // text: `Something went wrong!`,
+        });
       });
-    }
+
+    // if (res.data.data) {
+    //   console.log(res);
+    //   dispatch(createUser(res.data.data));
+    //   Swal.fire({
+    //     icon: "success",
+    //     title: "Successful!",
+    //     html: `<b>Let's save lives!</b>`,
+    //   });
+    //   navigate("/");
+    // } else {
+    //   console.log(res);
+
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Oops...",
+    //     text: JSON.stringify(res.data.message),
+    //     // text: `Something went wrong!`,
+    //   });
+    // }
   });
   return (
     <Container>

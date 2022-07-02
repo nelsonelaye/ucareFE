@@ -107,7 +107,7 @@ const Lets = () => {
               <TableCell>{moment(row.date).format("MMMM d, YYYY")}</TableCell>
               <TableCell>{moment(row.time).format("h:mma")}</TableCell>
               <TableCell>
-                <Link
+                <Link 
                   to={`/confirm/${row._id}`}
                   style={{ textDecoration: "none" }}
                 >

@@ -133,45 +133,6 @@ const ParientArrange = () => {
               <Bar options={options} data={data} />;
             </Holde>
           </Charts>
-          <div>
-            <iframe
-              style={{
-                background: "#FFFFFF",
-                border: "none",
-                borderRadius: "2px",
-                boxShadow: "0 2px 10px 0 rgba(70, 76, 79, .2)",
-              }}
-              width="640"
-              height="480"
-              src="https://charts.mongodb.com/charts-project-0-nasvr/embed/charts?id=62b9e144-6664-46a6-8503-11ce07e32c77&maxDataAge=60&theme=dark&autoRefresh=true"
-            ></iframe>
-          </div>
-          <div>
-            <iframe
-              style={{
-                background: "#21313C",
-                border: "none",
-                borderRadius: "2px",
-                boxShadow: "0 2px 10px 0 rgba(70, 76, 79, .2)",
-              }}
-              width="640"
-              height="480"
-              src="https://charts.mongodb.com/charts-project-0-nasvr/embed/charts?id=62b9eabc-7fbe-4207-852f-f88e65f01403&maxDataAge=3600&theme=dark&autoRefresh=true"
-            ></iframe>
-          </div>
-          <div>
-            <iframe
-              style={{
-                background: "#FFFFFF",
-                border: " none",
-                borderRadius: "2px",
-                boxShadow: "0 2px 10px 0 rgba(70, 76, 79, .2)",
-              }}
-              width="640"
-              height="480"
-              src="https://charts.mongodb.com/charts-project-0-nasvr/embed/charts?id=62b9f0f5-a230-4559-8bf4-4ebd5906419b&maxDataAge=3600&theme=light&autoRefresh=true"
-            ></iframe>
-          </div>
         </Overviews>
       </Right>
     </Container>

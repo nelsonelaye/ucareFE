@@ -33,7 +33,7 @@ const AdminHead = ({ image, name }) => {
                 }}
               />
             </Menu>
-            <Hold>
+            <Hold style={{ display: "none" }}>
               <FiSearch />
               <Input placeholder="Search" />
             </Hold>
