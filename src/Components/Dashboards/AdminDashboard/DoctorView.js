@@ -18,7 +18,7 @@ const DocOverview = () => {
   const user = useSelector((state) => state.user);
   console.log(user);
 
-  const hospitalId = user.hospital;
+  const hospitalId = user._id;
 
   const getDoctors = async () => {
     const mainURL = "http://localhost:1210";
@@ -154,7 +154,7 @@ const Show = styled.div`
 const GenWrap = styled.div``;
 const Gender = styled.div`
   height: 250px;
-  width: 300px;
+  width: 50%;
 
   // background: #eeeeff;
   display: flex;
@@ -164,7 +164,7 @@ const Gender = styled.div`
 `;
 const Birth = styled.div`
   height: 250px;
-  width: 300px;
+  width: 50%;
   // background: #eeeeff;
   display: flex;
   flex-direction: column;
@@ -223,7 +223,7 @@ const ProfileWrap = styled.div`
 
 const Profile = styled.div`
   height: 310px;
-  width: 280px;
+  width: 250px;
   border: 1px solid grey;
   display: flex;
 
@@ -271,10 +271,11 @@ const Headers = styled.div`
 `;
 const Overviews = styled.div`
   flex: 1;
-  width: 100%;
+  width: 90%;
   flex-direction: column;
   display: flex;
   justify-content: center;
+  // align-items: center;
   /* height:100% ; */
 `;
 
@@ -282,6 +283,10 @@ const Right = styled.div`
   height: 100%;
   min-height: 100vh;
   width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   // background-color:red ;
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -289,7 +294,7 @@ const Right = styled.div`
 `;
 const Left = styled.div`
   height: 100vh;
-  width: 15%;
+
   background-color: blue;
   @media screen and (max-width: 768px) {
     display: none;

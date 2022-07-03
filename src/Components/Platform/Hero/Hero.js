@@ -103,11 +103,12 @@ const Container = styled.div`
   justify-content: center;
   /* align-items: center; */
   height: 100vh;
+  width: 100%;
 `;
 const Wrapper = styled.div`
   display: flex;
-  width: 1000px;
-  height: 80%;
+  width: 90%;
+  height: 100%;
   flex-direction: column;
   /* background-color: blue; */
 `;

@@ -9,21 +9,23 @@ import SignUp from "../Platform/SignUp/SignUp";
 import SignIn from "../Platform/SignIn/SignIn";
 import DoctorSignIn from "../Platform/DoctorAuth/SignIn";
 import DoctorSignUp from "../Platform/DoctorAuth/SignUp";
+import DoctorDetail from "../Dashboards/AdminDashboard/DoctorView";
+
 import Auth from "../ReduxState/Auth";
 import MultiUser from "../Platform/Toggle/Toggle";
 import HospitalDetail from "../Platform/HospitalDetailed/Home";
 import HospitalList from "../Platform/HospitalList/HospitalList";
-import Allpatients from "../Dashboards/DoctorDashboard/AllPatients";
+import Allpatients from "../Dashboards/AdminDashboard/AllPatients";
 import AllAppointment from "../Dashboards/AdminDashboard/AllAppointments";
-import ConfirmAppoint from "../Dashboards/DoctorDashboard/ConfirmAppoint";
-import CreateProfile from "../Dashboards/PatientDashboard/CreateProfile";
-import AdminCreateProfile from "../Dashboards/PatientDashboard/CreateProfile";
+// import ConfirmAppoint from "../Dashboards/AdminDashboard/ConfirmAppoint";
+import ViewAppointment from "../Dashboards/AdminDashboard/DetailAppointment";
+import AdminCreateProfile from "../Dashboards/AdminDashboard/CreateProfile";
 import DocCreate from "../Dashboards/DoctorDashboard/DocCreate";
 import DocOverview from "../Dashboards/DoctorDashboard/DocOverview";
 import AdminView from "../Dashboards/AdminDashboard/AdminView";
 import Specialists from "../Dashboards/AdminDashboard/AllSpecialists";
 import Patients from "../Dashboards/AdminDashboard/PatientAdmin";
-import Specialist from "../Dashboards/PatientDashboard/Specialist";
+// import Specialist from "../Dashboards/AdminDashboard/Specialist";
 import AdminDash from "../Dashboards/AdminDashboard/AdminOverview";
 import { useSelector } from "react-redux";
 function HospitalRoutes() {
@@ -47,13 +49,18 @@ function HospitalRoutes() {
             <Route path="/all-specialists" element={<Specialists />} />
             <Route path="/all-patients" element={<Patients />} />
             <Route path="/all-appointments" element={<AllAppointment />} />
-            <Route path="/doc" element={<Specialist />} />
+
+            <Route path="/doctor/:doctorId/detail" element={<DoctorDetail />} />
+
             <Route
               path="/hospital/:hospitalId/detail"
               element={<HospitalDetail />}
             />
+            <Route
+              path="/appointment/:appointmentId"
+              element={<ViewAppointment />}
+            />
             <Route path="/allpatient" element={<Allpatients />} />
-            <Route path="/confirm" element={<ConfirmAppoint />} />
           </Routes>
         </>
       ) : null}

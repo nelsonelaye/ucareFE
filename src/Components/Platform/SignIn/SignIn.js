@@ -50,7 +50,7 @@ const SignIn = () => {
           title: "Successful!",
           html: `<b>Let's save lives!</b>`,
         });
-        navigate("/");
+        navigate("/admin-overview");
       })
       .catch((err) => {
         console.log(err.message);

@@ -140,7 +140,7 @@ const DocName = styled.div`
 const Prt1 = styled.div`
   width: 100%;
   height: 65%;
-  background: url("/images/doctors.jpg");
+  background: url("/assets/doctors.jpg");
   // postion:relative;
 `;
 const Prt2 = styled.div`
@@ -157,7 +157,7 @@ const Carde = styled.div`
   height: 350px;
   width: 350px;
   // background:red;
-  margin: 5px 0px;
+  margin: 10px;
 
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,

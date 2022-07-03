@@ -382,6 +382,7 @@ const ProfileWrap = styled.div`
 
 const Profile = styled.div`
   height: 310px;
+  padding: 20px;
   width: 310px;
   background: url("/images/profbak.png");
   background-position: center;

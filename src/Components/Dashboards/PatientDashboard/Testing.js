@@ -39,7 +39,7 @@ const Test = styled.div`
 const Cards = styled.div`
   height: 200px;
   width: 300px;
-
+  margin: 10px 15px;
   /* background:${({ bgColor }) => bgColor}; */
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   display: flex;

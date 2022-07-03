@@ -225,7 +225,7 @@ const Right = styled.div`
 `;
 const Left = styled.div`
   height: 100vh;
-  width: 15%;
+
   background-color: blue;
   @media screen and (max-width: 768px) {
     display: none;
