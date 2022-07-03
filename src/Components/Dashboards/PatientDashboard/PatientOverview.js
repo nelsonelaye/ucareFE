@@ -1,6 +1,6 @@
 import { FaMale, FaWeight } from "react-icons/fa";
 import { MdBloodtype, MdPlace } from "react-icons/md";
-
+import TableAppoint from "./TableAppoint";
 import AdminHead from "./Head";
 import AdminNav from "./Nav";
 import { AiFillMail } from "react-icons/ai";
@@ -127,6 +127,7 @@ const PatientOverview = () => {
                 <Appoint>
                   <HeaderBut>Upcoming Appointment</HeaderBut>
                   <AllAppoint>
+                    <TableAppoint />
                     <Carde>
                       <FServ>
                         <Serve>
@@ -232,7 +233,8 @@ const Serve = styled.div`
 
 const Carde = styled.div`
   padding: 5px 10px;
-  display: flex;
+  // display: flex;
+  display: none;
   width: 95%;
   justify-content: space-between;
   background: white;
@@ -244,12 +246,14 @@ const Carde = styled.div`
 `;
 const AllAppoint = styled.div``;
 const HeaderBut = styled.div`
-  color: #0000cc;
-  padding: 10px 0px;
+  color: black;
+  padding: 15px 0px;
   width: 300px;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
   font-weight: bold;
+  font-size: 18px;
   display: flex;
   justify-content: center;
 `;
@@ -263,9 +267,10 @@ const Graph = styled.div`
 `;
 const Appoint = styled.div`
   padding: 0px 10px;
-  height: 350px;
-  width: 45%;
+  height: 100%;
+  width: 90%;
   background-color: #eeeeff;
+  border-radius: 3px;
   padding: 10px 10px;
   @media (max-width: 768px) {
     width: 90%;
@@ -279,6 +284,7 @@ const Third = styled.div`
   // background-color:yellow;
   height: 100%;
   width: 100%;
+  margin-bottom: 30px;
   justify-content: space-around;
   padding: 15px 0px;
 
@@ -338,6 +344,7 @@ const Birth = styled.div`
 `;
 const Contact = styled.div`
   display: flex;
+  height: 310px;
   background: #eeeeff;
   align-items: center;
   @media screen and (max-width: 768px) {

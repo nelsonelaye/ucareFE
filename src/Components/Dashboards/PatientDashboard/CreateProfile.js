@@ -12,14 +12,18 @@ import { createUser } from "../../ReduxState/Global";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 const UpdatePatient = () => {
-  const [avatar, setAvatar] = useState();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const hospitalId = user.hospital;
   const patientId = user._id;
+
+  const [avatar, setAvatar] = useState(user.avatar);
+
   const handleImage = (e) => {
     const file = e.target.files[0];
+    const save = URL.createObjectURL(file);
+    // setImage(save);
     setAvatar(file);
   };
 
@@ -106,14 +110,16 @@ const UpdatePatient = () => {
           <MainHold>
             <BlueBack>Update Profile</BlueBack>
             <AllForm onSubmit={onSubmit}>
-              <Inputer>
-                <span>Profile Picture</span>
-                <input
-                  type="file"
-                  placeholder="Upload image"
+              <ImageHolder>
+                <Image src={avatar} />
+                <ImageLabel htmlFor="pix">Upload Avatar</ImageLabel>
+                <ImageInput
+                  id="pix"
                   onChange={handleImage}
+                  type="file"
+                  accept="image/*"
                 />
-              </Inputer>
+              </ImageHolder>
 
               <Inputer>
                 <span>First Name</span>
@@ -222,12 +228,55 @@ const UpdatePatient = () => {
 
 export default UpdatePatient;
 
+const Image = styled.img`
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: darkorange;
+  margin-bottom: 20px;
+  transition: all 350ms;
+  :hover {
+    cursor: pointer;
+    transform: scale(1.02);
+  }
+`;
+
+const ImageHolder = styled.div`
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+`;
+
+const ImageInput = styled.input`
+  display: none;
+`;
+
+const ImageLabel = styled.label`
+  padding: 8px 15px;
+  background-color: var(--color);
+  color: white;
+  border-radius: 5px;
+  transition: all 350ms;
+  font-weight: 500;
+  :hover {
+    cursor: pointer;
+    transform: scale(1.01);
+  }
+`;
+
 const Buttons = styled.button`
   margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   padding: 10px 10px;
   border-radius: 5px;
   background-color: #0000cc;
+  outline: none;
+  border: 0;
   width: 200px;
   color: white;
   font-weight: 500;
@@ -241,10 +290,23 @@ const Inputer = styled.div`
   flex-direction: column;
 
   span {
-    font-size: 20px;
+    font-size: 16px;
     padding: 5px 0px;
   }
   input {
+    display: flex;
+    /* align-items: center; */
+    padding-left: 5px;
+    padding-top: 5px;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    :focus {
+      outline-color: rgba(0, 0, 255, 0.5);
+    }
+  }
+
+  select {
     display: flex;
     /* align-items: center; */
     padding-left: 5px;

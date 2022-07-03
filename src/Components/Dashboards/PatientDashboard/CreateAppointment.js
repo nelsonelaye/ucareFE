@@ -198,15 +198,6 @@ const ParientArrange = () => {
                 </Inputer>
               </Double>
 
-              <Inputer>
-                <span>{errors.brief && errors.brief.message}</span>
-                <span> Brief</span>
-                <textarea
-                  placeholder="Brief"
-                  type="text"
-                  {...register("brief")}
-                />
-              </Inputer>
               <Double>
                 <Inputer>
                   {errors.doctorId && errors.doctorId.message}
@@ -225,7 +216,7 @@ const ParientArrange = () => {
                   </select>
                 </Inputer>
                 <Inputer>
-                  <div>{errors.time && errors.time.message}</div>
+                  {errors.time && errors.time.message}
                   <span>Time</span>
                   <input
                     type="datetime-local"
@@ -234,6 +225,16 @@ const ParientArrange = () => {
                   />
                 </Inputer>
               </Double>
+
+              <Inputer>
+                <span>{errors.brief && errors.brief.message}</span>
+                <span> Brief</span>
+                <textarea
+                  placeholder="Brief"
+                  type="text"
+                  {...register("brief")}
+                />
+              </Inputer>
 
               <Buttons type="submit">Submit</Buttons>
             </AllForm>
@@ -291,6 +292,8 @@ const Inputer = styled.div`
     width: 100%;
     height: 30px;
     border: 1px solid gray;
+    border-radius: 3px;
+
     :focus {
       outline-color: rgba(0, 0, 255, 0.5);
     }
@@ -303,6 +306,7 @@ const Inputer = styled.div`
     width: 100%;
     height: 50px;
 
+    border-radius: 3px;
     border: 1px solid gray;
     :focus {
       outline-color: rgba(0, 0, 255, 0.5);

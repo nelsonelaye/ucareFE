@@ -107,7 +107,7 @@ const DocCreate = () => {
             <AllForm onSubmit={onSubmit}>
               <ImageHolder>
                 <Image src={avatar} />
-                <ImageLabel htmlFor="pix">Upload Logo</ImageLabel>
+                <ImageLabel htmlFor="pix">Upload Avatar</ImageLabel>
                 <ImageInput
                   id="pix"
                   onChange={handleImage}
