@@ -75,8 +75,27 @@ const SignUp = () => {
     const config = {
       "content-type": "multipart/form-data",
     };
-
-    const res = await axios.post(url, formData, config);
+    await axios
+      .post(url, formData, config)
+      .then((res) => {
+        console.log(res);
+        dispatch(createUser(res.data.data));
+        Swal.fire({
+          icon: "success",
+          title: "Successful!",
+          text: "An OTP has been sent to your email. Check your inbox or Spam folder to verify your account",
+        });
+        navigate("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Failed. Please check your details and try again.",
+          // text: `Something went wrong!`,
+        });
+      });
     // if (res.data.data) {
     //   console.log(res);
     //   navigate("/otp");
@@ -96,14 +115,14 @@ const SignUp = () => {
     //   });
     // }
 
-    console.log(res);
-    navigate("/login");
-    Swal.fire({
-      icon: "success",
-      title: "Successful!",
-      text: "Check your mail for verification.",
-      footer: "Check your spam folder if mail is not found",
-    });
+    // console.log(res);
+    // navigate("/login");
+    // Swal.fire({
+    //   icon: "success",
+    //   title: "Successful!",
+    //   text: "Check your mail for verification.",
+    //   footer: "Check your spam folder if mail is not found",
+    // });
   });
 
   return (
