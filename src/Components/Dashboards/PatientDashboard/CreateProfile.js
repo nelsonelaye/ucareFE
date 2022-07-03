@@ -290,8 +290,9 @@ const Inputer = styled.div`
   flex-direction: column;
 
   span {
-    font-size: 16px;
+    font-size: 15px;
     padding: 5px 0px;
+    font-weight: 600;
   }
   input {
     display: flex;

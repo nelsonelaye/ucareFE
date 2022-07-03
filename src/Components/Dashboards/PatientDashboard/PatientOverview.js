@@ -407,6 +407,8 @@ const First = styled.div`
   width: 100%;
   /* background-color:blue; */
   justify-content: space-evenly;
+  align-items: center;
+
   padding: 20px 0;
   @media (max-width: 768px) {
     flex-direction: column;

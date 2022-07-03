@@ -252,6 +252,8 @@ const Buttons = styled.button`
   text-align: center;
   padding: 10px 10px;
   border-radius: 5px;
+  border: 0;
+  outline: none;
   background-color: #0000cc;
   width: 200px;
   color: white;
@@ -282,6 +284,7 @@ const Inputer = styled.div`
   span {
     font-size: 15px;
     padding: 5px 0px;
+    font-weight: 600;
     width: 100%;
   }
   input {

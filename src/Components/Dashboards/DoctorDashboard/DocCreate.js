@@ -254,10 +254,12 @@ const ImageLabel = styled.label`
 `;
 
 const Buttons = styled.button`
-  margin-top: 10px;
+  margin-top: 15px;
   text-align: center;
   padding: 10px 10px;
   border-radius: 5px;
+  border: 0;
+  outline: none;
   background-color: #0000cc;
   width: 200px;
   color: white;
@@ -272,10 +274,24 @@ const Inputer = styled.div`
   flex-direction: column;
 
   span {
-    font-size: 20px;
+    font-size: 15px;
     padding: 5px 0px;
+    font-weight: 600;
   }
   input {
+    display: flex;
+    /* align-items: center; */
+    padding-left: 5px;
+    padding-top: 5px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    :focus {
+      outline-color: rgba(0, 0, 255, 0.5);
+    }
+  }
+
+  select {
     display: flex;
     /* align-items: center; */
     padding-left: 5px;
