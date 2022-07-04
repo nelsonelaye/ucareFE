@@ -165,6 +165,7 @@ const Header = styled.div`
     width: 70px;
     height: 70px;
     border-radius: 100%;
+    object-fit: cover;
   }
 
   span {

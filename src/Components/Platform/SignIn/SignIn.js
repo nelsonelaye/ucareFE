@@ -53,7 +53,7 @@ const SignIn = () => {
         navigate("/admin-overview");
       })
       .catch((err) => {
-        if ((err.response.status = 404)) {
+        if (err.response.status === 404) {
           console.log(err.response);
 
           Swal.fire({
@@ -62,7 +62,7 @@ const SignIn = () => {
             text: "User not found",
             // text: `Something went wrong!`,
           });
-        } else if ((err.response.status = 400)) {
+        } else if (err.response.status === 400) {
           console.log(err.response);
 
           Swal.fire({
@@ -71,7 +71,7 @@ const SignIn = () => {
             text: "Password is incorrect",
             // text: `Something went wrong!`,
           });
-        } else if ((err.response.status = 401)) {
+        } else if (err.response.status === 401) {
           console.log(err.response);
 
           Swal.fire({

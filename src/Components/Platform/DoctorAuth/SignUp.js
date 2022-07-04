@@ -38,21 +38,51 @@ const Signup = () => {
     const mainURL = "http://localhost:1210";
     const url = `${mainURL}/api/hospital/${hospitalId}/doctor`;
 
-    const res = await axios.post(url, {
-      email,
-      password,
-      inputKey,
-      firstName,
-      lastName,
-    });
-    console.log(res);
-    navigate(`/hospital/${hospitalId}/doctor`);
-    Swal.fire({
-      icon: "success",
-      title: "Successful!",
-      html: `<b>Complete your mail for verification link.</b>`,
-      footer: "Check your spam folder if mail is not found",
-    });
+    await axios
+      .post(url, {
+        email,
+        password,
+        inputKey,
+        firstName,
+        lastName,
+      })
+      .then((res) => {
+        console.log(res);
+        Swal.fire({
+          icon: "success",
+          title: "Successful!",
+          text: "Now proceed to login.",
+        });
+        navigate(`/hospital/${hospitalId}/doctor`);
+      })
+      .catch((err) => {
+        console.log(err);
+        if (err.response.status === 400) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Hospital key is incorrect",
+            // text: `Something went wrong!`,
+          });
+        } else if (err.response.status === 404) {
+          console.log(err);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Hospital does not exist. Go back and try again",
+            // text: `Something went wrong!`,
+          });
+        } else {
+          console.log(err);
+
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err.response.message,
+            // text: `Something went wrong!`,
+          });
+        }
+      });
   });
 
   return (
@@ -137,13 +167,13 @@ const Cont = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
+  padding: 30px;
   top: 0;
   z-index: 5;
 `;
 
 const Card = styled.div`
   width: 400px;
-  min-height: 550px;
   height: 100%;
   padding: 20px 0;
   margin: 30px 0;
@@ -189,7 +219,7 @@ const Meracle = styled.div`
     outline: none;
 
     background-color: transparent;
-    width: 80%;
+    width: 100%;
     padding: 12px 3px;
     margin: 8px 0;
     box-sizing: border-box;

@@ -79,11 +79,10 @@ const SignUp = () => {
       .post(url, formData, config)
       .then((res) => {
         console.log(res);
-        dispatch(createUser(res.data.data));
         Swal.fire({
           icon: "success",
           title: "Successful!",
-          text: "An OTP has been sent to your email. Check your inbox or Spam folder to verify your account",
+          text: "Now proceed to login.",
         });
         navigate("/login");
       })

@@ -35,25 +35,74 @@ const SignIn = () => {
     const mainURL = "http://localhost:1210";
     const url = `${mainURL}/api/hospital/${hospitalId}/doctor/login`;
 
-    const res = await axios.post(url, { email, password });
-    if (res.data.data) {
-      console.log(res);
-      dispatch(createUser(res.data.data));
-      Swal.fire({
-        icon: "success",
-        title: "Login Successful!",
-        html: `<p>Let's save lives!</p>`,
-      });
-      navigate("/doctor-overview");
-    } else {
-      console.log(res);
+    await axios
+      .post(url, { email, password })
+      .then((res) => {
+        navigate("/doctor-overview");
+        console.log(res);
+        dispatch(createUser(res.data.data));
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful!",
+          html: `<p>Let's save lives!</p>`,
+        });
+      })
+      .catch((err) => {
+        if (err.response.status === 404) {
+          console.log(err.response);
 
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: JSON.stringify(res.data.message),
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "User not found",
+            // text: `Something went wrong!`,
+          });
+        } else if (err.response.status === 400) {
+          console.log(err.response);
+
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Password is incorrect",
+            // text: `Something went wrong!`,
+          });
+        } else if (err.response.status === 401) {
+          console.log(err.response);
+
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "You are not verified. Check your mail for verification link.",
+            // text: `Something went wrong!`,
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err.response.message,
+            // text: `Something went wrong!`,
+          });
+        }
       });
-    }
+
+    // if (res.data.data) {
+    //   console.log(res);
+    //   dispatch(createUser(res.data.data));
+    //   Swal.fire({
+    //     icon: "success",
+    //     title: "Login Successful!",
+    //     html: `<p>Let's save lives!</p>`,
+    //   });
+    //   navigate("/doctor-overview");
+    // } else {
+    //   console.log(res);
+
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Oops...",
+    //     text: JSON.stringify(res.data.message),
+    //   });
+    // }
 
     // console.log(res);
     // dispatch(createUser(res.data.data));
@@ -175,7 +224,7 @@ const Meracle = styled.div`
     outline: none;
 
     background-color: transparent;
-    width: 80%;
+    width: 100%;
     padding: 12px 3px;
     margin: 8px 0;
     box-sizing: border-box;

@@ -107,6 +107,9 @@ const ParientArrange = () => {
           <AdminHead />
         </Headers>
         <Overviews>
+          <Key>
+            Hospital Key: <span>{user.key}</span>{" "}
+          </Key>
           <Second>
             <Cards
               spane={appointments.length}
@@ -159,6 +162,18 @@ const Charts = styled.div`
   }
 `;
 
+const Key = styled.div`
+  color: var(--tiny);
+  font-size: 20px;
+  margin: 30px;
+
+  span {
+    letter-spacing: 1px;
+    color: black;
+    font-weight: 600;
+  }
+`;
+
 const Second = styled.div`
   display: flex;
   height: auto;
@@ -166,7 +181,7 @@ const Second = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 40px 0;
+  padding: 20px 0;
   @media screen and (max-width: 768px) {
     justify-content: center;
     align-items: center;
